@@ -30,18 +30,18 @@ Gas::Gas() {
 	cmzParams.Y = -10. * pc;
 	cmzParams.Z = -20. * pc;
 
-	sinalpha = sin(bulgeParams.alpha);
-	sinbeta = sin(bulgeParams.beta);
-	sintheta = sin(bulgeParams.theta);
-	cosalpha = sin(bulgeParams.alpha);
-	cosbeta = sin(bulgeParams.beta);
-	costheta = sin(bulgeParams.theta);
-	costhetac = cos(cmzParams.thetac);
-	sinthetac = sin(cmzParams.thetac);
+	sinalpha = std::sin(bulgeParams.alpha);
+	sinbeta = std::sin(bulgeParams.beta);
+	sintheta = std::sin(bulgeParams.theta);
+	cosalpha = std::cos(bulgeParams.alpha);
+	cosbeta = std::cos(bulgeParams.beta);
+	costheta = std::cos(bulgeParams.theta);
+	costhetac = std::cos(cmzParams.thetac);
+	sinthetac = std::sin(cmzParams.thetac);
 }
 
 double Gas::density(const Vector3d& pos) const {
-	return (cmz(pos) + bulge(pos) + disk(pos));
+	return std::max(cmz(pos) + bulge(pos) + disk(pos), 0.);
 }
 
 double H2::cmz(const Vector3d& pos) const {
@@ -50,8 +50,9 @@ double H2::cmz(const Vector3d& pos) const {
 	double x2 = xb * costhetac + yb * sinthetac;
 	double y2 = -xb * sinthetac + yb * costhetac;
 
-	double H2CMZ_A = exp(-pow(((sqrt(pow2(x2) + 6.25 * pow2(y2)) - cmzParams.Xc) / cmzParams.Lc), 4));
-	double H2CMZ_B = exp(-pow2(pos.z / cmzParams.Hc2));
+	double value = (std::sqrt(pow2(x2) + 6.25 * pow2(y2)) - cmzParams.Xc) / cmzParams.Lc;
+	double H2CMZ_A = std::exp(-pow4(value));
+	double H2CMZ_B = std::exp(-pow2(pos.z / cmzParams.Hc2));
 
 	return XcoFactor * 150.0 * H2CMZ_A * H2CMZ_B;
 }
@@ -69,8 +70,9 @@ double H2::bulge(const Vector3d& pos) const {
 			pos.y * sinalpha * cosbeta +
 			pos.z * cosalpha * cosbeta;
 
-	double H2DISK_A = exp(-pow(((sqrt(pow2(X) + pow2(3.1 * Y)) - bulgeParams.X) / bulgeParams.L) ,4));
-	double H2DISK_B = exp(-pow2(Z / bulgeParams.H));
+	double value = (std::sqrt(pow2(X) + pow2(3.1 * Y)) - bulgeParams.X) / bulgeParams.L;
+	double H2DISK_A = std::exp(-pow4(value));
+	double H2DISK_B = std::exp(-pow2(Z / bulgeParams.H));
 
 	return XcoFactor * 4.8 * H2DISK_A * H2DISK_B;
 }
@@ -107,7 +109,7 @@ double HI::bulge(const Vector3d& pos) const {
 	const double HIDISK_A = exp(-pow(((sqrt(pow2(X) + pow2(3.1 * Y)) - bulgeParams.X) / bulgeParams.L) ,4));
 	const double HIDISK_B = exp(-pow2(Z / bulgeParams.HI));
 
-	return 0.34 * HIDISK_A * HIDISK_B;
+	return std::max(0.34 * HIDISK_A * HIDISK_B, 0.);
 }
 
 double HI::disk(const Vector3d& pos) const {
@@ -119,18 +121,21 @@ double HI::disk(const Vector3d& pos) const {
 	double H3 = (403. * pc) * alpha;
 
 	double nc = (0.340 / cm3) / alpha / alpha;
-	nc *= 0.859 * exp(-pow(pos.z / H1, 2)) + 0.047 * exp(-pow(pos.z / H2, 2)) + 0.094 * exp(-fabs(pos.z) / H3);
+	double exp1 = std::exp(-pow2(pos.z / H1));
+	double exp2 = std::exp(-pow2(pos.z / H2));
+	double exp3 = std::exp(-fabs(pos.z) / H3);
+	nc *= 0.859 * exp1 + 0.047 * exp2 + 0.094 * exp3;
 
 	double nw = (0.226 / cm3) / alpha;
-	nw *= (1.745 - 1.289 / alpha) * exp(-pow(pos.z / H1, 2)) +
-			(0.473 - 0.070 / alpha) * exp(-pow(pos.z / H2, 2)) +
-			(0.283 - 0.142 / alpha) * exp(-fabs(pos.z) / H3);
+	nw *= (1.745 - 1.289 / alpha) * std::exp(-pow2(pos.z / H1)) +
+			(0.473 - 0.070 / alpha) * std::exp(-pow2(pos.z / H2)) +
+			(0.283 - 0.142 / alpha) * std::exp(-std::fabs(pos.z) / H3);
 
 	return nc + nw;
 }
 
 double HII::cmz(const Vector3d& pos) const {
-	double r = sqrt(pos.x * pos.x + pos.z * pos.z);
+	double r = std::sqrt(pos.x * pos.x + pos.z * pos.z);
 
 	double HIICMZ_A = exp(-(pow2(pos.x) + pow2(pos.y - cmzParams.Y)) / pow2(cmzParams.L3)) * exp(-pow2(pos.z - cmzParams.Z) / pow2(cmzParams.H3));
 	double HIICMZ_B = 0.009 * (exp(-pow2(r - cmzParams.L2) / pow2(cmzParams.L2 / 2.0)) * sech2(pos.z / cmzParams.H2));

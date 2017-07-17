@@ -8,7 +8,7 @@ std::shared_ptr<Galaxy> D2MW::create_HI() {
 	} else {
 		assert(HI_model == "Ferriere07");
 	}
-	std::cout << HI->description() << "\n";
+	//std::cout << HI->description() << "\n";
 	return HI->clone();
 }
 
@@ -18,7 +18,7 @@ std::shared_ptr<Galaxy> D2MW::create_HII() {
 	} else {
 		assert(HII_model == "Ferriere2007");
 	}
-	std::cout << HII->description() << "\n";
+	//std::cout << HII->description() << "\n";
 	return HII->clone();
 }
 
@@ -28,7 +28,7 @@ std::shared_ptr<Galaxy> D2MW::create_H2() {
 	} else {
 		assert(H2_model == "Ferriere2007");
 	}
-	std::cout << H2->description() << "\n";
+	//std::cout << H2->description() << "\n";
 	return H2->clone();
 }
 
