@@ -9,8 +9,6 @@
 #define sech(A) (1.0 / std::cosh(A))
 #define sech2(A) (1.0 / std::cosh(A) / std::cosh(A))
 
-namespace DRAGON {
-
 // MKS units
 static const double meter = 1;
 static const double kilogram = 1;
@@ -109,7 +107,5 @@ static const double pc = parsec;
 static const double kpc = kiloparsec;
 static const double Mpc = megaparsec;
 static const double Gpc = gigaparsec;
-
-} /* namespace DRAGON */
 
 #endif /* INCLUDE_MKS_H_ */

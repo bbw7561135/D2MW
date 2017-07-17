@@ -2,6 +2,7 @@
 #define INCLUDE_D2MW_H_
 
 #include <cassert>
+#include <iostream>
 #include <memory>
 #include <string>
 #include "galaxy.h"

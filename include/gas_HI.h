@@ -1,6 +1,9 @@
 #ifndef INCLUDE_GAS_HI_H_
 #define INCLUDE_GAS_HI_H_
 
+#include "galaxy.h"
+#include "models/gasFerriere2007.h"
+
 namespace DRAGON {
 
 class HI_Ferriere07: public Galaxy {

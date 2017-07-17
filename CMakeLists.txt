@@ -51,8 +51,8 @@ include_directories (include ${D2MW_INCLUDES})
 add_library(D2MW ${D2MW_SRCS} ${D2MW_INCLUDES})
 
 # make executables
-add_executable(d2_example_gas examples/example_gas.cpp )
-target_link_libraries (d2_example_gas D2MW ${D2MW_LIBRARIES})
+add_executable(example_gas examples/example_gas.cpp )
+target_link_libraries (example_gas D2MW ${D2MW_LIBRARIES})
 
 # show summary
 message (STATUS "CMAKE_SYSTEM .......... = ${CMAKE_SYSTEM}")
