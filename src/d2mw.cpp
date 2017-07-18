@@ -15,6 +15,8 @@ std::shared_ptr<Galaxy> D2MW::create_HI() {
 std::shared_ptr<Galaxy> D2MW::create_HII() {
 	if (HII_model == "Ferriere2007") {
 		HII = std::make_shared<HII_Ferriere07>();
+	} else if (HII_model == "Cordes1991") {
+		HII = std::make_shared<HII_Cordes91>();
 	} else {
 		assert(HII_model == "Ferriere2007");
 	}
@@ -25,6 +27,8 @@ std::shared_ptr<Galaxy> D2MW::create_HII() {
 std::shared_ptr<Galaxy> D2MW::create_H2() {
 	if (H2_model == "Ferriere2007") {
 		H2 = std::make_shared<H2_Ferriere07>();
+	} else if (H2_model == "Bronfmann1988") {
+		H2 = std::make_shared<H2_Bronfman88>();
 	} else {
 		assert(H2_model == "Ferriere2007");
 	}
