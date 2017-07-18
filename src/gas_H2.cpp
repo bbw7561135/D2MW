@@ -9,6 +9,18 @@ double H2_Ferriere07::get(const Vector3d& pos) const {
 	return gas.density(pos_pc.x, pos_pc.y, pos_pc.z) / cm3;
 }
 
+/*** H2_Nakanishi06 ***/
+
+double H2_Nakanishi06::get(const Vector3d& pos) const {
+	auto pos_kpc = pos / kpc;
+	double r = pos_kpc.getR();
+	double z = pos_kpc.z;
+	double E1 = 11.2 * std::exp(-pow2(r) / 0.874);
+	double E2 = 0.83 * std::exp(-pow2((r - 4.0) / 3.2));
+	double h = 1.06e-3 * (10.8 * std::exp(0.28 * r) + 42.78);
+	return 2.0 * 0.94 * (E1 + E2) * std::exp(-M_LN2 * pow2(z / h)) / cm3;
+}
+
 /*** H2_Bronfman88 ***/
 
 void H2_Bronfman88::init() {
