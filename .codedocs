@@ -1,0 +1,9 @@
+# CodeDocs.xyz Configuration File
+
+DOXYFILE = doxygen/Doxyfile.doxy 
+
+PROJECT_LOGO = doxygen/logo.png
+
+INPUT = include \ 
+        src \
+        doxygen
