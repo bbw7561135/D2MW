@@ -35,6 +35,7 @@ set( D2MW_SRCS
      src/gas_HI.cpp
      src/gas_HII.cpp
      src/gas_H2.cpp
+     src/xco.cpp
      src/utilities.cpp
      src/models/gasFerriere2007.cpp
 )

@@ -2,6 +2,7 @@
 #define INCLUDE_GAS_HI_H_
 
 #include "galaxy.h"
+#include "mks.h"
 #include "models/gasFerriere2007.h"
 
 namespace DRAGON {
@@ -26,7 +27,7 @@ public:
 	}
 
 	/**
-	 * Get the pointer of this istance
+	 * Get the pointer of this instance
 	 */
 	std::shared_ptr<Galaxy> clone() const override {
 		return std::make_shared<HI_Ferriere07>(*this);
@@ -40,7 +41,7 @@ public:
 	double get(const Vector3d& pos) const override;
 
 private:
-	Ferriere07::HI gas;
+	Ferriere07::HI gas; /* A class containing the Ferriere07 model */
 };
 
 /**
@@ -63,7 +64,7 @@ public:
 	}
 
 	/**
-	 * Get the pointer of this istance
+	 * Get the pointer of this instance
 	 */
 	std::shared_ptr<Galaxy> clone() const override {
 		return std::make_shared<HI_Nakanishi03>(*this);

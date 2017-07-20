@@ -36,4 +36,14 @@ std::shared_ptr<Galaxy> D2MW::create_H2() {
 	return H2->clone();
 }
 
+std::shared_ptr<Galaxy> D2MW::create_XCO() {
+	if (XCO_model == "Evoli2012") {
+		XCO = std::make_shared<XCO_Evoli12>();
+	}
+	else {
+		assert(XCO_model == "Evoli2012");
+	}
+	return XCO->clone();
+}
+
 } /* namespace DRAGON */
