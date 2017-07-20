@@ -2,7 +2,7 @@
 
 DOXYFILE = doxygen/Doxyfile.doxy 
 
-PROJECT_LOGO = doxygen/logo.png
+PROJECT_LOGO = doxygen/thumbnail-logo.jpg
 
 INPUT = include \ 
         src \
