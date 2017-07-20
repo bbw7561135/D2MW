@@ -1,3 +1,14 @@
+/**
+ * @file example_gas.cpp
+ * @date 18 Jul 2017
+ * @brief File containing example of using gas models.
+ *
+ * With this example you produce a list of positions along R
+ * and the number density of HI, H2 and HII.
+ * Models for HI are: Ferriere2007, ...
+ * @see http://www.stack.nl/~dimitri/doxygen/commands.html
+ */
+
 #include <iostream>
 #include <iomanip>
 
@@ -5,7 +16,6 @@
 
 using namespace DRAGON;
 
-/* Get gas distribution */
 int main() {
 	D2MW mw;
 	mw.set_HI("Ferriere2007");

@@ -1,0 +1,19 @@
+/*! \file   mainpage.dox
+    \brief  Introduction page
+
+  \mainpage Introduction
+            Welcome to the documentation of D2MW. 
+            
+            This documentation is a work in progress - only some of the code has thus far been documented
+            and we welcome any and all input to documenting it further. 
+            Any help/suggestions are more than welcome.
+              
+  \section  about What is D2MW?
+            D2MW is a DRAGON2 interface to compute the astrophysical ingredients described in the Appendix C.
+            See ref for more details.
+*/
+
+/*!
+	\defgroup todos Todos
+	D2MW todo’s
+*/

@@ -10,31 +10,26 @@ set( CMAKE_CXX_FLAGS "-O2 -ftree-vectorize -std=c++11" )
 set( D2MW_INCLUDES )
 set( D2MW_LIBRARIES )
 
-# download data files
-#message("-- Downloading data file from DRAGON2 repository ~ 10 MB")
-#file(DOWNLOAD
-#	https://www.dropbox.com/s/aluz8yka66uruwn/data.tar.gz?dl=0
-#	${CMAKE_BINARY_DIR}/data.tar.gz
-#	EXPECTED_MD5 87bbb5999a15799c4449354f5a62c73c)
-#message("-- Extracting data file")
-#execute_process(COMMAND ${CMAKE_COMMAND} -E tar xzf ${CMAKE_BINARY_DIR}/data.tar.gz WORKING_DIRECTORY ${CMAKE_BINARY_DIR})
-
 # include
 include_directories( "${CMAKE_SOURCE_DIR}/include" )
 
-# ymw16 (provided)
-#add_subdirectory(libs/ymw16)
-#list(APPEND D2XSEC_LIBRARIES YMW16) 
+# Doxygen documentation
+option(BUILD_DOC "Build documentation" ON)
+find_package(Doxygen)
+if (DOXYGEN_FOUND)
+     set(DOXYGEN_IN ${CMAKE_CURRENT_SOURCE_DIR}/doxygen/Doxyfile.in)
+     set(DOXYGEN_OUT ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile)
+     configure_file(${DOXYGEN_IN} ${DOXYGEN_OUT} @ONLY)
+     message("Doxygen build started")
 
-# GSL (external)
-#find_package(GSL)
-#if(GSL_FOUND)
-#  set(HAVE_LIBGSL 1)
-#  list(APPEND D2MW_INCLUDES ${GSL_INCLUDE_DIR})
-#  list(APPEND D2MW_LIBRARIES ${GSL_LIBRARIES})
-#else(GSL_FOUND)
-#  message(FATAL_ERROR "Require GSL: set GSL_HOME")
-#endif(GSL_FOUND)
+     add_custom_target( docs ALL
+          COMMAND ${DOXYGEN_EXECUTABLE} ${DOXYGEN_OUT}
+          WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
+          COMMENT "Generating API documentation with Doxygen"
+          VERBATIM )
+else (DOXYGEN_FOUND)
+     message("Doxygen need to be installed to generate the doxygen documentation")
+endif (DOXYGEN_FOUND)
 
 # add source files
 set( D2MW_SRCS
