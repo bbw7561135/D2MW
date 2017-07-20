@@ -16,9 +16,10 @@ using namespace DRAGON;
  * In this example the number density of HI, H2 and HII (in \f$cm^{-3}\f$)
  * is computed as a function of the Galactocentric distance R (in kpc).
  *
- * @remark Options available for HI: Ferriere2007,
- * @remark Options available for HII: Ferriere2007 (only bulge), Cordes1991, ...
- * @remark Options available for H2: Ferriere2007, Bronfmann1988
+ * @remark Options available for HI  : Ferriere2007,
+ * @remark Options available for HII : Ferriere2007 (only bulge), Cordes1991, ...
+ * @remark Options available for H2  : Ferriere2007, Bronfmann1988
+ * @remark Options available for XCO : Arimoto1996, Ackermann2010, Evoli2012
  *
  * @see https://arxiv.org/abs/1607.07886
  */

@@ -8,6 +8,7 @@
 namespace DRAGON {
 
 /**
+ * \class HI_Ferriere07
  * Class to implement the Ferriere2007 model for HI
  */
 class HI_Ferriere07: public Galaxy {
