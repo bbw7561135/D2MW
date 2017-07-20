@@ -7,15 +7,13 @@
 
 Welcome to the documentation of D2MW. 
             
-This documentation is a work in progress - only some of the code has thus far been documented and we welcome any and all input to documenting it further. 
+This documentation is a work in progress - only some part of the code has been documented and we welcome any input to documenting it further. 
 
-Any help/suggestions are more than welcome.
+This code is part of the DRAGON project available at www.dragonproject.org
 
 \section about What is D2MW?
 
-D2MW is a DRAGON2 interface to compute the astrophysical ingredients described in the Appendix C.
- 
-See ref for more details.
+D2MW is a DRAGON2 interface to compute the astrophysical ingredients described in the Appendix C of <a href="https://arxiv.org/abs/1607.07886">arXiv:1607.07886</a> 
 
 \section installation Installation
 
@@ -26,6 +24,12 @@ git clone
 mkdir build ; cd build
 cmake ..
 make
+\endcode
+
+If you want to install locally this documentation you need doxygen installed 
+
+\code{.sh}
+make doc
 \endcode
 
 \section todos D2MW todos
