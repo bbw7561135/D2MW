@@ -1,6 +1,7 @@
 #ifndef INCLUDE_UTILITIES_H_
 #define INCLUDE_UTILITIES_H_
 
+#include <algorithm>
 #include <cmath>
 #include <vector>
 
