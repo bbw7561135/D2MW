@@ -6,4 +6,5 @@ PROJECT_LOGO = doxygen/logo.png
 
 INPUT = include \ 
         src \
+        examples \
         doxygen
