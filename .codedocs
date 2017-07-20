@@ -1,3 +1,6 @@
 DOXYFILE = doxygen/Doxyfile.in
 PROJECT_LOGO = doxygen/thumbnail-logo.jpg
-INPUT = src/ examples/ include/ doxygen/
+INPUT = src \ 
+        examples \
+        include \
+        doxygen 
