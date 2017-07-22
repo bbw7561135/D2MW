@@ -9,3 +9,8 @@ D2MW requires GSL library. We provide 5 examples of using, each of them can be i
 > cmake ..
 > make example1
 ```
+
+## Tested on 
+
+- Apple LLVM version 8.0.0 (macOS Sierra)
+- gcc version 4.8.5 20150623 (Red Hat 4.8.5-11)
