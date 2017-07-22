@@ -2,14 +2,10 @@
 
 namespace DRAGON {
 
-/*** HI_Ferriere07 ***/
-
 double HI_Ferriere07::get(const Vector3d& pos) const {
 	auto pos_pc = pos / pc;
 	return gas.density(pos_pc.x, pos_pc.y, pos_pc.z) / cm3;
 }
-
-/*** HI_Nakanishi03 ***/
 
 double HI_Nakanishi03::get(const Vector3d& pos) const {
 	double r_kpc = pos.getR() / kpc;

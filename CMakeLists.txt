@@ -13,6 +13,28 @@ set( D2MW_LIBRARIES )
 # include
 include_directories( "${CMAKE_SOURCE_DIR}/include" )
 
+# GSL (external)
+find_package(GSL)
+if(GSL_FOUND)
+    set(HAVE_LIBGSL 1)
+    list(APPEND D2MW_INCLUDES ${GSL_INCLUDE_DIR})
+    list(APPEND D2MW_LIBRARIES ${GSL_LIBRARIES})
+else(GSL_FOUND)
+    message(FATAL_ERROR "Require GSL: set GSL_HOME")
+endif(GSL_FOUND)
+
+# add source files
+set( D2MW_SRCS
+     src/d2mw.cpp
+     src/gas_HI.cpp
+     src/gas_HII.cpp
+     src/gas_H2.cpp
+     src/sources.cpp
+     src/xco.cpp
+     src/utilities.cpp
+     src/models/gasFerriere2007.cpp
+)
+
 # Doxygen documentation
 find_package(Doxygen)
 if (DOXYGEN_FOUND)
@@ -28,17 +50,6 @@ if (DOXYGEN_FOUND)
 else (DOXYGEN_FOUND)
      message("Doxygen need to be installed to generate the doxygen documentation")
 endif (DOXYGEN_FOUND)
-
-# add source files
-set( D2MW_SRCS
-     src/d2mw.cpp
-     src/gas_HI.cpp
-     src/gas_HII.cpp
-     src/gas_H2.cpp
-     src/xco.cpp
-     src/utilities.cpp
-     src/models/gasFerriere2007.cpp
-)
 
 # make library
 include_directories (include ${D2MW_INCLUDES})
