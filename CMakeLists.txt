@@ -26,6 +26,7 @@ endif(GSL_FOUND)
 # add source files
 set( D2MW_SRCS
      src/d2mw.cpp
+     src/ISRF.cpp
      src/gas_HI.cpp
      src/gas_HII.cpp
      src/gas_H2.cpp
@@ -55,9 +56,12 @@ endif (DOXYGEN_FOUND)
 include_directories (include ${D2MW_INCLUDES})
 add_library(D2MW ${D2MW_SRCS} ${D2MW_INCLUDES})
 
-# make executables
+# make examples
 add_executable(example_gas examples/example_gas.cpp )
 target_link_libraries (example_gas D2MW ${D2MW_LIBRARIES})
+
+add_executable(example_isrf examples/example_isrf.cpp )
+target_link_libraries (example_isrf D2MW ${D2MW_LIBRARIES})
 
 # show summary
 message (STATUS "CMAKE_SYSTEM .......... = ${CMAKE_SYSTEM}")

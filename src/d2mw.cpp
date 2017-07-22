@@ -46,4 +46,17 @@ std::shared_ptr<Galaxy> D2MW::create_XCO() {
 	return XCO->clone();
 }
 
+std::shared_ptr<Galaxy> D2MW::create_ISRF() {
+	if (ISRF_model == "Vernetto2016") {
+		ISRF = std::make_shared<RadiationField_Vernetto16>();
+	}
+	else if (ISRF_model == "Delahaye2010") {
+		ISRF = std::make_shared<RadiationField_Delahaye10>();
+	}
+	else {
+		assert(ISRF_model == "Vernetto2016");
+	}
+	return ISRF->clone();
+}
+
 } /* namespace DRAGON */

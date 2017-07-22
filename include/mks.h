@@ -14,6 +14,7 @@
 static const double meter = 1;
 static const double kilogram = 1;
 static const double second = 1;
+static const double Hz = 1. / second;
 static const double ampere = 1;
 static const double kelvin = 1;
 static const double mole = 1;
@@ -66,7 +67,7 @@ static const double h_planck = 6.62607004e-34 * pow2(meter) * kg / sec;
 static const double k_boltzmann = 1.3806488e-23 * joule / kelvin;
 static const double elementary_charge = 1.60217662e-19 * coulomb;
 static const double vacuum_permeability = 4e-7 * M_PI * tesla * meter / ampere;
-
+static const double h_c = h_planck * c_light;
 // electron volt
 static const double electronvolt = 1.60217657e-19 * joule;
 static const double kiloelectronvolt = 1e3 * electronvolt;

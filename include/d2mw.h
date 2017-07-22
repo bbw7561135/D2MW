@@ -10,6 +10,7 @@
 #include "gas_HII.h"
 #include "gas_H2.h"
 #include "xco.h"
+#include "ISRF.h"
 
 namespace DRAGON {
 
@@ -63,34 +64,50 @@ public:
 	}
 
 	/*
-	 * Create pointer to HI class
+	 * Set ISRF model name
+	 * @param name Model name
+	 */
+	void set_ISRF(const std::string& name) {
+		ISRF_model = name;
+	}
+
+	/*
+	 * Create a pointer to HI class
 	 */
 	std::shared_ptr<Galaxy> create_HI();
 
 	/*
-	 * Create pointer to HII class
+	 * Create a pointer to HII class
 	 */
 	std::shared_ptr<Galaxy> create_HII();
 
 	/*
-	 * Create pointer to H2 class
+	 * Create a pointer to H2 class
 	 */
 	std::shared_ptr<Galaxy> create_H2();
 
 	/*
-	 * Create pointer to XCO class
+	 * Create a pointer to XCO class
 	 */
 	std::shared_ptr<Galaxy> create_XCO();
+
+	/*
+	 * Create a pointer to ISFR class
+	 */
+	std::shared_ptr<Galaxy> create_ISRF();
 
 private:
 	std::string HI_model = "Ferriere2007";
 	std::string HII_model = "Ferriere2007";
 	std::string H2_model = "Ferriere2007";
 	std::string XCO_model = "Evoli2012";
+	std::string ISRF_model = "Vernetto2016";
+
 	std::shared_ptr<Galaxy> HI;
 	std::shared_ptr<Galaxy> HII;
 	std::shared_ptr<Galaxy> H2;
 	std::shared_ptr<Galaxy> XCO;
+	std::shared_ptr<Galaxy> ISRF;
 };
 
 } /* namespace DRAGON */
