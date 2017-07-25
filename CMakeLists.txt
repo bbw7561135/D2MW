@@ -64,6 +64,9 @@ target_link_libraries (example_gas D2MW ${D2MW_LIBRARIES})
 add_executable(example_isrf examples/example_isrf.cpp )
 target_link_libraries (example_isrf D2MW ${D2MW_LIBRARIES})
 
+add_executable(example_sources examples/example_sources.cpp )
+target_link_libraries (example_sources D2MW ${D2MW_LIBRARIES})
+
 # show summary
 message (STATUS "CMAKE_SYSTEM .......... = ${CMAKE_SYSTEM}")
 message (STATUS "BUILD_SHARED_LIBS ..... = ${BUILD_SHARED_LIBS}")
