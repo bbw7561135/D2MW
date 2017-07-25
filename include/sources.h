@@ -4,6 +4,7 @@
 #include <vector>
 
 #include "galaxy.h"
+#include "integrator.h"
 #include "mks.h"
 
 namespace DRAGON {
@@ -17,6 +18,11 @@ public:
 	 * Class Constructor
 	 */
 	Sources_Ferriere01() {
+	}
+
+	Sources_Ferriere01(const double& rate) :
+			galactic_rate(rate) {
+		compute_normalization();
 	}
 
 	/**
@@ -41,10 +47,13 @@ public:
 	 */
 	double get(const Vector3d& pos) const override;
 
+	void compute_normalization();
+
 private:
+	double galactic_rate = 1. / 40. / year;
+	double normalization = 1;
 	Vector3d sun = Vector3d(8.5 * kpc, 0, 0);
 };
-
 
 /**
  * Class to implement the Yusifov2004 model for source profile
