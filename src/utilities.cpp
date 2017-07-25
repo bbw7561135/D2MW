@@ -8,5 +8,4 @@ void copy_vector_with_units(const std::vector<double>& v_old,
 
 double Interpol1D(double x, double xa, double xb, double ya, double yb) {
 	return (ya + (yb - ya) * (x - xa) / (xb - xa));
-
-} /* namespace DRAGON */
+}

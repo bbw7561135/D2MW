@@ -45,7 +45,7 @@ double H2_Bronfman88::get(const Vector3d& pos) const {
 	double value = 0.0;
 	if (r > R.front() && r < R.back()) {
 		size_t i = std::lower_bound(R.begin(), R.end(), r) - R.begin() - 1;
-		double n0_ = Interpol1D(r, R[i], R[i + 1], n0[i], n0[i + 1]);
+		double n0_ = Interpol1D(r, R[i], R[i + 1], n0[i], n0[i + 1]); // TODO change with Interpolator
 		double Z0_ = Interpol1D(r, R[i], R[i + 1], Z0[i], Z0[i + 1]);
 		double Zh_ = Interpol1D(r, R[i], R[i + 1], Zh[i], Zh[i + 1]);
 		value = n0_ * std::exp(-M_LN2 * pow2((pos.z - Z0_) / Zh_));
