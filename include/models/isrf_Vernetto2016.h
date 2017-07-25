@@ -15,11 +15,31 @@
 
 namespace Vernetto16 {
 
+/*
+ * Class to read and use the Vernetto2016 model
+ */
 class ISRF_grid {
 public:
+	/*
+	 * Constructor initializes grid and axes
+	 */
 	ISRF_grid();
+	/*
+	 * Destructor cleans grid and axes
+	 */
 	virtual ~ISRF_grid() {
+		grid.clear();
+		R.clear();
+		Z.clear();
+		energy.clear();
 	}
+	/*
+	 * Computes the energy density by interpolating grid
+	 * @param r Galactic position in cylindrical coordinates
+	 * @param z Galacitc position in cylindrical coordinates
+	 * @param photon_energy radiation field photon energy
+	 * @output energy density [J/m3]
+	 */
 	double energy_density(const double& r, const double& z, const double& photon_energy) const;
 private:
 	std::vector<double> grid;

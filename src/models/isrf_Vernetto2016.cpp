@@ -37,7 +37,7 @@ double ISRF_grid::energy_density(const double& r, const double& z, const double&
 		double target_prime = energy_unit;
 		double v_prime[2] = { Interpolator<double>::Bilinear(target, v_0), Interpolator<double>::Bilinear(target, v_1) };
 
-		return Interpolator<double>::Linear(target_prime, v_prime) / pow2(photon_energy);
+		return Interpolator<double>::Linear(target_prime, v_prime);
 	}
 }
 

@@ -12,7 +12,7 @@ double RadiationField_Delahaye10::get(const Vector3d& pos, const double& energy)
 
 double RadiationField_Vernetto16::get(const Vector3d& pos, const double& energy) const {
 	auto r = pos.getR();
-	return isrf.energy_density(r, pos.z, energy);
+	return isrf.energy_density(r, pos.z, energy) / pow2(energy);
 }
 
 } /* namespace DRAGON */
