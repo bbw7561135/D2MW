@@ -8,6 +8,7 @@
 #include "blackbody.h"
 #include "galaxy.h"
 #include "mks.h"
+#include "models/isrf_Vernetto2016.h"
 #include "vector3.h"
 
 namespace DRAGON {
@@ -49,14 +50,14 @@ public:
 	RadiationField_Vernetto16() {
 	}
 	virtual std::string description() const override {
-		return "Vernetto2017";
+		return "Vernetto2016";
 	}
 	virtual std::shared_ptr<Galaxy> clone() const override {
 		return std::make_shared<RadiationField_Vernetto16>(*this);
 	}
-	virtual double get(const Vector3d& pos, const double& frequency) const override {
-		return 1;
-	}
+	virtual double get(const Vector3d& pos, const double& frequency) const override;
+private:
+	Vernetto16::ISRF_grid isrf;
 };
 
 } /* namespace DRAGON */
