@@ -16,13 +16,13 @@ using namespace DRAGON;
  * In this example the number density of HI, H2 and HII (in \f$cm^{-3}\f$)
  * is computed as a function of the Galactocentric distance R (in kpc).
  *
- * @remark Options available for HI  : Ferriere2007,
+ * @remark Options available for sources : Ferriere2001, Yusifov2004, Lorimer2006
  *
  * @see https://arxiv.org/abs/1607.07886
  */
 int main() {
 	D2MW mw;
-	mw.set_sources("Ferriere2001");
+	mw.set_sources("Lorimer2006");
 	double rate = 1. / 30. / year;
 	auto Q = mw.create_sources(rate);
 

@@ -60,6 +60,12 @@ std::shared_ptr<Galaxy> D2MW::create_sources(const double& rate) {
 	if (sources_model == "Ferriere2001") {
 		Q = std::make_shared<Sources_Ferriere01>(rate);
 	}
+	else if (sources_model == "Yusifov2004") {
+		Q = std::make_shared<Sources_Yusifov04>(rate, 1.64, 4.01, 0.55 * kpc, 0.2 * kpc);
+	}
+	else if (sources_model == "Lorimer2006") {
+		Q = std::make_shared<Sources_Yusifov04>(rate, 1.9, 5.0, 0, 0.2 * kpc);
+	}
 	else {
 		assert(sources_model == "Ferriere2001");
 	}

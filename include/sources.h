@@ -47,6 +47,10 @@ public:
 	 */
 	double get(const Vector3d& pos) const override;
 
+	/**
+	 * Compute the source rate normalization such that
+	 * the 2D integral gives the galactic rate
+	 */
 	void compute_normalization();
 
 private:
@@ -58,14 +62,21 @@ private:
 /**
  * Class to implement the Yusifov2004 model for source profile
  */
-class Sources_Yusifov2004: public Galaxy {
+class Sources_Yusifov04: public Galaxy {
 public:
 	/**
 	 * Class Constructor
 	 */
-	Sources_Yusifov2004() {
+	Sources_Yusifov04() {
 	}
 
+	/*
+	 * Class Constructor including parameters and rate
+	 */
+	Sources_Yusifov04(const double& rate, const double& a_, const double& b_, const double& R_1_, const double& z_0_) :
+			galactic_rate(rate), a(a_), b(b_), R_1(R_1_), z_0(z_0_) {
+		compute_normalization();
+	}
 	/**
 	 * Get the reference for the Yusifov2004 model
 	 * @return string containing a reference
@@ -78,7 +89,7 @@ public:
 	 * Get the pointer of this instance
 	 */
 	std::shared_ptr<Galaxy> clone() const override {
-		return std::make_shared<Sources_Yusifov2004>(*this);
+		return std::make_shared<Sources_Yusifov04>(*this);
 	}
 
 	/**
@@ -88,12 +99,20 @@ public:
 	 */
 	double get(const Vector3d& pos) const override;
 
+	/**
+	 * Compute the source rate normalization such that
+	 * the 2D integral gives the galactic rate
+	 */
+	void compute_normalization();
+
 private:
+	double galactic_rate = 1. / 40. / year;
+	double normalization = 1;
 	Vector3d sun = Vector3d(8.5 * kpc, 0, 0);
-	double b = 0;
-	double R_1 = 0;
-	double z_0 = 0;
-	double a = 0;
+	double a = 1.64;
+	double b = 4.01;
+	double R_1 = 0.55 * kpc;
+	double z_0 = 0.2 * kpc;
 };
 
 } /* namespace DRAGON */
