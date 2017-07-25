@@ -33,7 +33,8 @@ set( D2MW_SRCS
      src/sources.cpp
      src/xco.cpp
      src/utilities.cpp
-     src/models/gasFerriere2007.cpp
+     src/models/gas_Ferriere2007.cpp
+     src/models/isrf_Vernetto2016.cpp
 )
 
 # Doxygen documentation

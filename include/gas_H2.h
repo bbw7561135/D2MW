@@ -5,8 +5,8 @@
 #include <vector>
 
 #include "galaxy.h"
+#include "models/gas_Ferriere2007.h"
 #include "utilities.h"
-#include "models/gasFerriere2007.h"
 
 namespace DRAGON {
 

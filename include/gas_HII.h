@@ -2,7 +2,7 @@
 #define INCLUDE_GAS_HII_H_
 
 #include "galaxy.h"
-#include "models/gasFerriere2007.h"
+#include "models/gas_Ferriere2007.h"
 
 namespace DRAGON {
 

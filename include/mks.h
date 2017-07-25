@@ -24,6 +24,7 @@ static const double tesla = kilogram / ampere / pow2(second);
 static const double coulomb = ampere * second;
 
 // derived units
+static const double micron = 1e-6 * meter;
 static const double centimeter = 1e-2 * meter;
 static const double kilometer = 1e3 * meter;
 static const double gram = 1e-3 * kilogram;
@@ -68,6 +69,7 @@ static const double k_boltzmann = 1.3806488e-23 * joule / kelvin;
 static const double elementary_charge = 1.60217662e-19 * coulomb;
 static const double vacuum_permeability = 4e-7 * M_PI * tesla * meter / ampere;
 static const double h_c = h_planck * c_light;
+
 // electron volt
 static const double electronvolt = 1.60217657e-19 * joule;
 static const double kiloelectronvolt = 1e3 * electronvolt;

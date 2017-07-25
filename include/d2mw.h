@@ -9,8 +9,8 @@
 #include "gas_HI.h"
 #include "gas_HII.h"
 #include "gas_H2.h"
-#include "xco.h"
 #include "ISRF.h"
+#include "xco.h"
 
 namespace DRAGON {
 

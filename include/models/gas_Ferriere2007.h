@@ -1,5 +1,5 @@
-#ifndef INCLUDE_MODELS_GASFERRIERE2007_H_
-#define INCLUDE_MODELS_GASFERRIERE2007_H_
+#ifndef INCLUDE_MODELS_GAS_FERRIERE2007_H_
+#define INCLUDE_MODELS_GAS_FERRIERE2007_H_
 
 #include <algorithm>
 #include <cmath>
@@ -90,5 +90,5 @@ public:
 
 } /* namespace Ferriere07 */
 
-#endif /* INCLUDE_MODELS_GASFERRIERE2007_H_ */
+#endif /* INCLUDE_MODELS_GAS_FERRIERE2007_H_ */
 
