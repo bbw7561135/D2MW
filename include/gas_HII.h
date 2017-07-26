@@ -4,10 +4,18 @@
 #include "galaxy.h"
 #include "models/gas_Ferriere2007.h"
 
+extern "C" double ymw16_ne(double x_pc, double y_pc, double z_pc);
+
 namespace DRAGON {
 
+/**
+ * Class to implement the Ferriere2007 model for HII
+ */
 class HII_Ferriere07: public Galaxy {
 public:
+	/**
+	 * Class Constructor
+	 */
 	HII_Ferriere07() {
 	}
 	std::string description() const override {
@@ -21,8 +29,14 @@ private:
 	Ferriere07::HII gas;
 };
 
+/**
+ * Class to implement the Cordes1991 model for HII
+ */
 class HII_Cordes91: public Galaxy {
 public:
+	/**
+	 * Class Constructor
+	 */
 	HII_Cordes91() {
 		set_params();
 	}
@@ -42,6 +56,28 @@ private:
 	double A2;
 	double R2;
 	void set_params();
+};
+
+/**
+ * Class to implement the YMW16 model for HII
+ * @see https://arxiv.org/abs/1610.09448
+ */
+class HII_YMW16: public Galaxy {
+public:
+	/**
+	 * Class Constructor
+	 */
+	HII_YMW16() {
+	}
+	std::string description() const override {
+		return "Yao, Manchester and Wang, ApJ, 835, 29 (2017)";
+	}
+	std::shared_ptr<Galaxy> clone() const override {
+		return std::make_shared<HII_YMW16>(*this);
+	}
+	double get(const Vector3d& pos) const override;
+
+private:
 };
 
 } /* namespace DRAGON */

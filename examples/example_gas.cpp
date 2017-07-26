@@ -17,7 +17,7 @@ using namespace DRAGON;
  * is computed as a function of the Galactocentric distance R (in kpc).
  *
  * @remark Options available for HI  : Ferriere2007,
- * @remark Options available for HII : Ferriere2007 (only bulge), Cordes1991, ...
+ * @remark Options available for HII : Ferriere2007 (only bulge), Cordes1991, YMW16
  * @remark Options available for H2  : Ferriere2007, Bronfmann1988
  * @remark Options available for XCO : Arimoto1996, Ackermann2010, Evoli2012
  *
@@ -28,7 +28,7 @@ int main() {
 	mw.set_HI("Ferriere2007");
 	mw.set_H2("Bronfmann1988");
 	mw.set_XCO("Evoli2012");
-	mw.set_HII("Cordes1991");
+	mw.set_HII("YMW16");
 
 	auto HI = mw.create_HI();
 	auto H2 = mw.create_H2();

@@ -23,6 +23,15 @@ else(GSL_FOUND)
     message(FATAL_ERROR "Require GSL: set GSL_HOME")
 endif(GSL_FOUND)
 
+# NE2001 code (provided)
+#add_subdirectory(libs/NE2001)
+#list(APPEND D2MW_LIBRARIES NE2001) 
+
+# YMW16 code (provided)
+add_subdirectory(libs/ymw16)
+list(APPEND D2MW_LIBRARIES ymw16) 
+list(APPEND D2MW_INCLUDES libs/ymw16)
+
 # add source files
 set( D2MW_SRCS
      src/d2mw.cpp
@@ -70,6 +79,8 @@ target_link_libraries (example_sources D2MW ${D2MW_LIBRARIES})
 # show summary
 message (STATUS "CMAKE_SYSTEM .......... = ${CMAKE_SYSTEM}")
 message (STATUS "BUILD_SHARED_LIBS ..... = ${BUILD_SHARED_LIBS}")
+message (STATUS "CMAKE_C_COMPILER ...... = ${CMAKE_C_COMPILER}")
+message (STATUS "CMAKE_C_FLAGS ......... = ${CMAKE_C_FLAGS}")
 message (STATUS "CMAKE_CXX_COMPILER .... = ${CMAKE_CXX_COMPILER}")
 message (STATUS "CMAKE_CXX_FLAGS ....... = ${CMAKE_CXX_FLAGS}")
 message (STATUS "CMAKE_INCLUDE_PATH .... = ${CMAKE_INCLUDE_PATH}")

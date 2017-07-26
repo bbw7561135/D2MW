@@ -2,14 +2,10 @@
 
 namespace DRAGON {
 
-/*** HII_Ferriere07 ***/
-
 double HII_Ferriere07::get(const Vector3d& pos) const {
 	auto pos_pc = pos / pc;
 	return gas.density(pos_pc.x, pos_pc.y, pos_pc.z);
 }
-
-/*** HII_Cordes91 ***/
 
 void HII_Cordes91::set_params() {
 	fne1 = 0.025 / cm3;
@@ -26,6 +22,10 @@ double HII_Cordes91::get(const Vector3d& pos) const {
 	double ne1 = fne1 * exp(-fabs(pos.z) / H1) * exp(-pow(r / A1, 2.0));
 	double ne2 = fne2 * exp(-fabs(pos.z) / H2) * exp(-pow((r - R2) / A2, 2.0));
 	return ne1 + ne2;
+}
+
+double HII_YMW16::get(const Vector3d& pos) const {
+	return ymw16_ne(pos.x / pc, pos.y / pc, pos.z / pc) / cm3;
 }
 
 } /* namespace DRAGON */
