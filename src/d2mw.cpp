@@ -8,7 +8,7 @@ std::shared_ptr<Galaxy> D2MW::create_HI() {
 	} else {
 		assert(HI_model == "Ferriere07");
 	}
-	//std::cout << HI->description() << "\n";
+	std::cout << "# for HI model cite : " << HI->description() << "\n";
 	return HI->clone();
 }
 
@@ -22,7 +22,7 @@ std::shared_ptr<Galaxy> D2MW::create_HII() {
 	} else {
 		assert(HII_model == "Ferriere2007");
 	}
-	//std::cout << HII->description() << "\n";
+	std::cout << "# for HII model cite : " << HII->description() << "\n";
 	return HII->clone();
 }
 
@@ -34,7 +34,7 @@ std::shared_ptr<Galaxy> D2MW::create_H2() {
 	} else {
 		assert(H2_model == "Ferriere2007");
 	}
-	//std::cout << H2->description() << "\n";
+	std::cout << "# for H2 model cite : " << H2->description() << "\n";
 	return H2->clone();
 }
 
@@ -55,6 +55,7 @@ std::shared_ptr<Galaxy> D2MW::create_ISRF() {
 	} else {
 		assert(ISRF_model == "Vernetto2016");
 	}
+	std::cout << "# for ISRF model cite : " << ISRF->description() << "\n";
 	return ISRF->clone();
 }
 
@@ -68,6 +69,7 @@ std::shared_ptr<Galaxy> D2MW::create_sources(const double& rate) {
 	} else {
 		assert(sources_model == "Ferriere2001");
 	}
+	std::cout << "# for source model cite : " << Q->description() << "\n";
 	return Q->clone();
 }
 
