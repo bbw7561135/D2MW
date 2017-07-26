@@ -111,7 +111,6 @@ double ymw16_ne(double x_pc, double y_pc, double z_pc) {
 //    }
 //  }
 //
-//
 //  dd=-0.5*dstep;
 //  ncount=0;
 //
@@ -127,7 +126,7 @@ double ymw16_ne(double x_pc, double y_pc, double z_pc) {
 //    zz=dd*sb+t0.z_Sun;
 	xx = x_pc; // pc
 	yy = y_pc; // pc
-	zz = z_pc	; // pc
+	zz = z_pc; // pc
 
 	rr = sqrt(xx * xx + yy * yy);
 
@@ -178,19 +177,19 @@ double ymw16_ne(double x_pc, double y_pc, double z_pc) {
 	ne0 = ne1 + MAX(ne2, ne3);
 
 	if (hh > 110) { /* Outside LB */
-		if (ne6 > ne0 && ne6 > ne5) {
+	/*	if (ne6 > ne0 && ne6 > ne5) {
 			WLB = 1;
 		} else {
 			WLB = 0;
-		}
+		}*/
 	} else { /* Inside LB */
-		if (ne6 > ne0) {
+	/*	if (ne6 > ne0) {
 			WLB = 1;
 		} else {
 			ne1 = t6.J_LB * ne1;
 			ne0 = ne1 + MAX(ne2, ne3);
 			WLB = 0;
-		}
+		}*/
 	}
 	if (ne7 > ne0) { /* Loop I */
 		WLI = 1;

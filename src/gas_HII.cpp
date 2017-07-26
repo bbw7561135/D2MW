@@ -25,7 +25,7 @@ double HII_Cordes91::get(const Vector3d& pos) const {
 }
 
 double HII_YMW16::get(const Vector3d& pos) const {
-	return ymw16_ne(pos.x / pc, pos.y / pc, pos.z / pc) / cm3;
+	return ymw16_ne(pos.y / pc, pos.x / pc, pos.z / pc) / cm3;
 }
 
 } /* namespace DRAGON */
