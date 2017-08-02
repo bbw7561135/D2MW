@@ -2,6 +2,7 @@
 #define INCLUDE_GAS_HII_H_
 
 #include "galaxy.h"
+#include "mks.h"
 #include "models/gas_Ferriere2007.h"
 
 extern "C" double ymw16_ne(double x_pc, double y_pc, double z_pc);

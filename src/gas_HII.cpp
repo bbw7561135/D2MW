@@ -4,7 +4,7 @@ namespace DRAGON {
 
 double HII_Ferriere07::get(const Vector3d& pos) const {
 	auto pos_pc = pos / pc;
-	return gas.density(pos_pc.x, pos_pc.y, pos_pc.z);
+	return gas.density(pos_pc.x, pos_pc.y, pos_pc.z) / cm3;
 }
 
 void HII_Cordes91::set_params() {

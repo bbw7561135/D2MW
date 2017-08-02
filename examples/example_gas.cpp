@@ -26,16 +26,16 @@ using namespace DRAGON;
 int main() {
 	D2MW mw;
 	mw.set_HI("Ferriere2007");
-	mw.set_H2("Bronfmann1988");
+	mw.set_H2("Ferriere2007");
 	mw.set_XCO("Evoli2012");
-	mw.set_HII("YMW16");
+	mw.set_HII("Ferriere2007");
 
 	auto HI = mw.create_HI();
 	auto H2 = mw.create_H2();
 	auto HII = mw.create_HII();
 	auto XCO = mw.create_XCO();
 
-	const double z = 0;
+	/*const double z = 0;
 	std::cout << "# r [kpc] - n_HI [cm-3] - n_HII [cm-3] - n_H2 [cm-3] \n";
 	std::cout << std::scientific << std::setprecision(3);
 	for (double x = 0 * kpc; x < 20 * kpc; x += 0.1 * kpc) {
@@ -45,6 +45,15 @@ int main() {
 		std::cout << XCO->get(pos) * H2->get(pos) * cm3 << " ";
 		std::cout << HII->get(pos) * cm3 << " ";
 		std::cout << "\n";
+	}*/
+
+	for (double z = -1 * kpc; z <= 1 * kpc; z += 0.001 * kpc) {
+		auto pos = Vector3d(0, 0, z);
+		std::cout << z / kpc << " ";
+		std::cout << HI->get(pos) * cm3 << " ";
+		std::cout << HII->get(pos) * cm3 << " ";
+		std::cout << "\n";
 	}
+
 	return 0;
 }

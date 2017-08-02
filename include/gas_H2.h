@@ -6,6 +6,7 @@
 
 #include "galaxy.h"
 #include "interpolator.h"
+#include "mks.h"
 #include "models/gas_Ferriere2007.h"
 #include "utilities.h"
 
