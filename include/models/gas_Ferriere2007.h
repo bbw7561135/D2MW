@@ -7,11 +7,31 @@
 
 namespace Ferriere07 {
 
-/*
- * Galactic gravitational potential
- * @see Wolfire+1995
+/**
+ * Class to compute the galactic gravitational potential
  */
 class GravitationalPotential {
+public:
+	/**
+	 * Default constructor
+	 */
+	GravitationalPotential() {
+	}
+
+	/**
+	 * Destructor
+	 */
+	virtual ~GravitationalPotential() {
+	}
+
+	/**
+	 * Compute the gravitational potential
+	 * @param r r-position in pc
+	 * @param z z-position in pc
+	 * @return gravitational potential in (km/s)^2
+	 */
+	double get(const double& r, const double& z) const;
+
 protected:
 	double C1 = 8.887e3;
 	double C2 = 3.e3;
@@ -21,28 +41,6 @@ protected:
 	double a3 = 12e3;
 	double b1 = 0.26e3;
 	double rh = 210e3;
-
-public:
-	/*
-	 * Default constructor
-	 */
-	GravitationalPotential() {
-	}
-
-	/*
-	 * Destructor
-	 */
-	virtual ~GravitationalPotential() {
-	}
-
-	/*
-	 * Compute the gravitational potential
-	 * @param r r-position in pc
-	 * @param z z-position in pc
-	 * @return gravitational potential in (km/s)^2
-	 *
-	 */
-	double get(const double& r, const double& z) const;
 };
 
 class Gas {
