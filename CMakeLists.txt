@@ -44,6 +44,7 @@ set( D2MW_SRCS
      src/utilities.cpp
      src/models/gas_Ferriere2007.cpp
      src/models/isrf_Vernetto2016.cpp
+     src/models/gravitational_potential.cpp
 )
 
 # Doxygen documentation
