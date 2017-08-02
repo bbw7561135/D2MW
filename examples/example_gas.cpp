@@ -13,7 +13,7 @@ using namespace DRAGON;
 
 /**
  * @example example_gas.cpp
- * In this example the number density of HI, H2 and HII (in \f$cm^{-3}\f$)
+ * In this example the number density of HI, H2 and HII in \f$cm^{-3}\f$
  * is computed as a function of the Galactocentric distance R (in kpc).
  *
  * @remark Options available for HI  : Ferriere2007,

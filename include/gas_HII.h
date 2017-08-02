@@ -19,12 +19,27 @@ public:
 	 */
 	HII_Ferriere07() {
 	}
+
+	/**
+	 * Get the reference for the Ferriere07 model
+	 * @return string containing a reference
+	 */
 	std::string description() const override {
 		return "HIIFerriere07";
 	}
+
+	/**
+	 * Get the pointer of this instance
+	 */
 	std::shared_ptr<Galaxy> clone() const override {
 		return std::make_shared<HII_Ferriere07>(*this);
 	}
+
+	/**
+	 * Get the HII density at the given position
+	 * @param pos Galactic 3D position
+	 * @return gas density
+	 */
 	double get(const Vector3d& pos) const override;
 private:
 	Ferriere07::HII gas;
@@ -41,12 +56,27 @@ public:
 	HII_Cordes91() {
 		set_params();
 	}
+
+	/**
+	 * Get the reference for the Cordes91 model
+	 * @return string containing a reference
+	 */
 	std::string description() const override {
 		return "HII_Cordes91";
 	}
+
+	/**
+	 * Get the pointer of this instance
+	 */
 	std::shared_ptr<Galaxy> clone() const override {
 		return std::make_shared<HII_Cordes91>(*this);
 	}
+
+	/**
+	 * Get the HII density at the given position
+	 * @param pos Galactic 3D position
+	 * @return gas density
+	 */
 	double get(const Vector3d& pos) const override;
 private:
 	double fne1;
@@ -70,15 +100,28 @@ public:
 	 */
 	HII_YMW16() {
 	}
+
+	/**
+	 * Get the reference for the YMW16 model
+	 * @return string containing a reference
+	 */
 	std::string description() const override {
 		return "Yao, Manchester and Wang, ApJ, 835, 29 (2017)";
 	}
+
+	/**
+	 * Get the pointer of this instance
+	 */
 	std::shared_ptr<Galaxy> clone() const override {
 		return std::make_shared<HII_YMW16>(*this);
 	}
-	double get(const Vector3d& pos) const override;
 
-private:
+	/**
+	 * Get the HII density at the given position
+	 * @param pos Galactic 3D position
+	 * @return gas density
+	 */
+	double get(const Vector3d& pos) const override;
 };
 
 } /* namespace DRAGON */

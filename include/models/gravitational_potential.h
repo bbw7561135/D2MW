@@ -17,7 +17,7 @@ public:
 	}
 
 	/**
-	 * Destructor
+	 * Virtual Destructor
 	 */
 	virtual ~GravitationalPotential() {
 	}
@@ -26,7 +26,7 @@ public:
 	 * Compute the gravitational potential
 	 * @param r r-position in pc
 	 * @param z z-position in pc
-	 * @return gravitational potential in (km/s)^2
+	 * @return gravitational potential in \f$km/s^{2}\f$
 	 */
 	double get(const double& r, const double& z) const;
 
